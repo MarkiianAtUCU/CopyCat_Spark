@@ -15,7 +15,10 @@ from task_4 import task_4
 from task_5 import task_5
 from task_6 import task_6
 
-spark = SparkSession.builder.getOrCreate()
+spark = SparkSession.builder..master(config.SPARK_MASTER_URI).getOrCreate()
+conf = pyspark.SparkConf().setAll(config.SPARK_CLUSTER)
+sc.stop()
+sc = pyspark.SparkContext(conf=conf)
 s3Adapter = S3Adapter(config.AWS_CREDENTIALS, config.S3_OUTPUT_BUCKET)
 
 
