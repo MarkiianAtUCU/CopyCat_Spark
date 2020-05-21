@@ -1,15 +1,13 @@
 AWS_CREDENTIALS = {
-    "aws_access_key_id": "",
+    "aws_access_key_id": ",
     "aws_secret_access_key": "",
     "aws_session_token": "",
 }
 
-SPARK_MASTER_URI = ""
+SPARK_MASTER_URI = "spark:/<ip>:7077"
 SPARK_CLUSTER = [
-    ('spark.executor.memory', '8g'),
-    ('spark.executor.cores', '60'),
-    ('spark.cores.max', '6'),
-    ('spark.driver.memory', '8g')
+    ('spark.executor.memory', '2500m'),
+    ('spark.executor.cores', '2'),
 ]
 
 S3_DATA_LOCATION = "s3a://mmarkiian.s3/copycat_inc/data/"

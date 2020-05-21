@@ -24,3 +24,7 @@ class S3Adapter:
             print("ERR", e)
             return False, str(e)
         return True, "OK"
+
+    def get_file(self, filename):
+        s3object = self.s3.Object(self.bucket, filename)
+        return json.loads(s3object.get()['Body'].read().decode('utf-8'))

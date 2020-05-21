@@ -1,12 +1,12 @@
 import findspark
 import time
 
-from S3Adapter import S3Adapter
 import config
 
 findspark.init()
 from pyspark.sql import SparkSession
 import pyspark.sql.functions as F
+import pyspark
 
 from task_1 import task_1
 from task_2 import task_2
@@ -15,14 +15,11 @@ from task_4 import task_4
 from task_5 import task_5
 from task_6 import task_6
 
-spark = SparkSession.builder..master(config.SPARK_MASTER_URI).getOrCreate()
 conf = pyspark.SparkConf().setAll(config.SPARK_CLUSTER)
-sc.stop()
-sc = pyspark.SparkContext(conf=conf)
-s3Adapter = S3Adapter(config.AWS_CREDENTIALS, config.S3_OUTPUT_BUCKET)
+spark = SparkSession.builder.config(conf=conf).master(config.SPARK_MASTER_URI).getOrCreate()
 
 
-def process_file(zone, csv_file_name, categories_map):
+def process_file(zone, csv_file_name, categories_map, s3Adapter):
     print("    DATA LOADING Started")
     start_time = time.time()
 
