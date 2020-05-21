@@ -1,4 +1,4 @@
-from utils import split_by_category
+from utils.utils import split_by_category
 import pyspark.sql.functions as F
 from pyspark.sql.window import Window
 from pyspark.sql.functions import col

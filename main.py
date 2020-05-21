@@ -1,7 +1,7 @@
 import json
 
 from spark_processing import process_file
-from S3Adapter import S3Adapter
+from utils.S3Adapter import S3Adapter
 import config
 
 s3Adapter = S3Adapter(config.AWS_CREDENTIALS, config.S3_OUTPUT_BUCKET)
