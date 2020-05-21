@@ -15,4 +15,4 @@ for zone in zones_list:
 
 for zone in zones_list:
     print(f"\nStarted processing {zone} zone")
-    process_file(zone, f'data/{zone}videos.csv', categories_map, s3Adapter)
+    process_file(zone, f'{S3_DATA_LOCATION}{zone}videos.csv', categories_map, s3Adapter)

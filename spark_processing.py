@@ -18,6 +18,10 @@ from task_6 import task_6
 conf = pyspark.SparkConf().setAll(config.SPARK_CLUSTER)
 spark = SparkSession.builder.config(conf=conf).master(config.SPARK_MASTER_URI).getOrCreate()
 
+hadoop_conf = spark.sparkContext._jsc.hadoopConfiguration()
+hadoop_conf.set("fs.s3a.access.key", config.AWS_CREDENTIALS["aws_access_key_id"])
+hadoop_conf.set("fs.s3a.secret.key", config.AWS_CREDENTIALS["aws_secret_access_key"])
+
 
 def process_file(zone, csv_file_name, categories_map, s3Adapter):
     print("    DATA LOADING Started")
