@@ -8,12 +8,12 @@ from pyspark.sql import SparkSession
 import pyspark.sql.functions as F
 import pyspark
 
-from task_1 import task_1
-from task_2 import task_2
-from task_3 import task_3
-from task_4 import task_4
-from task_5 import task_5
-from task_6 import task_6
+from tasks.task_1 import task_1
+from tasks.task_2 import task_2
+from tasks.task_3 import task_3
+from tasks.task_4 import task_4
+from tasks.task_5 import task_5
+from tasks.task_6 import task_6
 
 conf = pyspark.SparkConf().setAll(config.SPARK_CLUSTER)
 spark = SparkSession.builder.config(conf=conf).master(config.SPARK_MASTER_URI).getOrCreate()
